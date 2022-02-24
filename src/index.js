@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 
 import { Provider } from "react-redux";
-import notesReducer from "./features/notes";
+import notesReducer from "./features/Notes";
 
 const store = configureStore({
   reducer: { notes: notesReducer },

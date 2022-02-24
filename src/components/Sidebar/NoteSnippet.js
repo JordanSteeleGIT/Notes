@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { DELETE_ITEM } from "../../features/notes";
+import { DELETE_ITEM } from "../../features/Notes";
 
 const NoteSnippet = ({ title, note, id }) => {
   const dispatch = useDispatch();

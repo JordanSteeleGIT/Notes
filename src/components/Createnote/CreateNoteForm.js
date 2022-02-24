@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { ADD_ITEM } from "../../features/notes";
+import { ADD_ITEM } from "../../features/Notes";
 import "./CreateNoteForm.css";
 import { v4 as uuidv4 } from "uuid";
 

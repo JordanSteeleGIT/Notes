@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
-import CreateNoteForm from "./components/Createnote/CreateNoteForm";
+import CreateNoteForm from "./components/CreateNote/CreateNoteForm";
 
 function App() {
   return (
