@@ -1,0 +1,77 @@
+.sidebar {
+  height: 100%;
+  width: 475px;
+  background-color: #f1f1f1;
+}
+.upper-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0 20px 0 20px;
+}
+
+.upper-sidebar h4 {
+  color: rgb(36, 103, 228);
+}
+.search {
+  height: 100px;
+  background-color: #dbdbdb;
+  margin-bottom: 20px;
+}
+.search div {
+  width: 100%;
+  padding: 0 20px 0 20px;
+}
+
+.search div:first-child {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search div:last-child {
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search input {
+  width: 80%;
+  height: 70%;
+  border-radius: 25px;
+  border: 2px solid #c1c1c1;
+  padding-left: 10px;
+  background-color: white;
+}
+.notesnippet {
+  background-color: #dfdfdf;
+  margin-top: 5px;
+  height: 125px;
+  padding: 0 20px 0 20px;
+  display: flex;
+}
+
+.notesnippet .delete {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 25%;
+}
+
+.notesnippet .delete h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: red;
+}
+.notesnippet .noteinfo {
+  padding-top: 20px;
+  width: 75%;
+}
+.notesnippet:hover {
+  background-color: #d1d1d1;
+  cursor: pointer;
+  flex: 1;
+}

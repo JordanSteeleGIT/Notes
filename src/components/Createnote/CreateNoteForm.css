@@ -1,0 +1,49 @@
+.createnote-container {
+  flex: 1;
+  padding: 130px 50px 0 50px;
+}
+
+.createnote-container form {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.createnote-container form input,
+textarea {
+  width: 100%;
+  font-size: 24px;
+  border-radius: 15px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  border: 2px solid #c1c1c1;
+}
+.createnote-container form input {
+  height: 70px;
+}
+
+.createnote-container form textarea {
+  height: 500px;
+  text-align: start;
+  padding-top: 10px;
+  font-family: inherit;
+  margin-top: 30px;
+}
+
+.createnote-container form input[type="submit"] {
+  background-color: rgb(36, 103, 228);
+  height: 75px;
+  width: 200px;
+  color: white;
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.createnote-container form p {
+  color: red;
+  position: absolute;
+  margin-left: 5px;
+}
