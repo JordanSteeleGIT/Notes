@@ -19,7 +19,9 @@ const Sidebar = () => {
       </div>
       <div className="notes">
         {user.map((data, i) => {
-          return <NoteSnippet title={data.title} note={data.note} />;
+          return (
+            <NoteSnippet title={data.title} note={data.note} id={data.uid} />
+          );
         })}
       </div>
     </div>

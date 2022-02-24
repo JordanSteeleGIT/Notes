@@ -22,7 +22,11 @@ export const notesSlice = createSlice({
     ADD_ITEM: (state, action) => {
       return { ...state, value: [...state.value, action.payload] };
     },
+    DELETE_ITEM: (state, action) => ({
+      ...state,
+      value: state.value.filter((item) => item.uid !== action.payload),
+    }),
   },
 });
-export const { ADD_ITEM } = notesSlice.actions;
+export const { ADD_ITEM, DELETE_ITEM } = notesSlice.actions;
 export default notesSlice.reducer;
