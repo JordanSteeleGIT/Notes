@@ -5,16 +5,11 @@ export const notesSlice = createSlice({
   initialState: {
     value: [
       {
-        id: "1",
-        title: "Title 1",
-        note:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
-      },
-      {
-        id: "2",
-        title: "Title 2",
-        note:
-          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
+        uid: "d793e81b-3394-472c-a23c-6fb9885b8469",
+        created: 1646059252654,
+        modified: 1646059252654,
+        title: "sd",
+        note: "sd",
       },
     ],
   },

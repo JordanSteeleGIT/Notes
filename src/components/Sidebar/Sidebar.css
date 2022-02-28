@@ -12,7 +12,7 @@
 }
 
 .upper-sidebar h4 {
-  color: rgb(36, 103, 228);
+  color: #2467e4;
 }
 .search {
   height: 100px;
@@ -47,7 +47,6 @@
   background-color: white;
 }
 .notesnippet {
-  background-color: #dfdfdf;
   margin-top: 5px;
   height: 125px;
   padding: 0 20px 0 20px;
@@ -59,6 +58,27 @@
   align-items: center;
   justify-content: flex-end;
   width: 25%;
+}
+
+.notesnippet .delete-confirmation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  width: 25%;
+}
+.notesnippet .delete-confirmation h1 {
+  font-size: 18px;
+  font-weight: 600;
+  display: inline;
+}
+.notesnippet .delete-confirmation div h1:first-child {
+  color: green;
+}
+
+.notesnippet .delete-confirmation div h1:last-child {
+  color: red;
 }
 
 .notesnippet .delete h1 {

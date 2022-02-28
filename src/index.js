@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
 import { Provider } from "react-redux";
 import notesReducer from "./features/Notes";
+import programState from "./features/AppState";
 
 const store = configureStore({
-  reducer: { notes: notesReducer },
+  reducer: { notes: notesReducer, programState: programState },
 });
 
 ReactDOM.render(
