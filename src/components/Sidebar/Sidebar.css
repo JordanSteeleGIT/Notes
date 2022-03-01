@@ -14,6 +14,9 @@
 .upper-sidebar h4 {
   color: #2467e4;
 }
+.upper-sidebar h4:hover {
+  cursor: pointer;
+}
 .search {
   height: 100px;
   background-color: #dbdbdb;

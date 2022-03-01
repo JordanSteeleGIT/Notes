@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { ADD_ITEM } from "../../features/Notes";
@@ -14,7 +14,8 @@ const CreateNoteForm = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
+    e.target.reset(); // clear text in fields
     const currentDate = new Date().getTime();
     const fullData = {
       uid: uuidv4(),
@@ -22,7 +23,7 @@ const CreateNoteForm = () => {
       modified: currentDate,
       ...data,
     };
-    console.log(fullData);
+
     dispatch(ADD_ITEM(fullData));
   };
   return (

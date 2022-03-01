@@ -22,7 +22,14 @@ const NoteSnippet = ({ title, note, id }) => {
   const DeleteTextToggle = () => {
     return (
       <div className="delete">
-        <h1 onClick={() => setDeleteConfirmationToggle(true)}>Delete</h1>
+        <h1
+          onClick={(e) => {
+            e.stopPropagation();
+            setDeleteConfirmationToggle(true);
+          }}
+        >
+          Delete
+        </h1>
       </div>
     );
   };
@@ -33,7 +40,8 @@ const NoteSnippet = ({ title, note, id }) => {
         <h1>Are you sure</h1>
         <div>
           <h1
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               dispatch(DELETE_ITEM(id));
               setDeleteConfirmationToggle(false);
             }}
@@ -41,7 +49,14 @@ const NoteSnippet = ({ title, note, id }) => {
             Yes
           </h1>
           <h1>/</h1>
-          <h1 onClick={() => setDeleteConfirmationToggle(false)}>No</h1>
+          <h1
+            onClick={(e) => {
+              e.stopPropagation();
+              setDeleteConfirmationToggle(false);
+            }}
+          >
+            No
+          </h1>
         </div>
       </div>
     );
@@ -51,12 +66,13 @@ const NoteSnippet = ({ title, note, id }) => {
     <>
       <div
         className="notesnippet"
+        onClick={() => dispatch(SET_ACTIVE_NOTE(id))}
         style={{
           backgroundColor:
-            id == programState.activeNote ? "#689af7" : "#E5E5E5",
+            id === programState.activeNote ? "#689af7" : "#E5E5E5",
         }}
       >
-        <div className="noteinfo" onClick={() => dispatch(SET_ACTIVE_NOTE(id))}>
+        <div className="noteinfo">
           <h1>{title}</h1>
           <h4>{shortenString(note)}</h4>
         </div>
