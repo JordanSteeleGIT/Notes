@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { DELETE_ITEM } from "../../features/Notes";
 import { SET_ACTIVE_NOTE } from "../../features/AppState";
 import { useSelector } from "react-redux";
 
-const NoteSnippet = ({ title, note, id }) => {
+const NoteSnippet = ({ data }) => {
   const dispatch = useDispatch();
   const programState = useSelector((state) => state.programState);
   const [deleteConfirmationToggle, setDeleteConfirmationToggle] = useState(
@@ -18,6 +18,10 @@ const NoteSnippet = ({ title, note, id }) => {
       return word.substr(0, 90) + " ...";
     }
   }
+
+  useEffect(() => {
+    console.log(programState.activeNote);
+  });
 
   const DeleteTextToggle = () => {
     return (
@@ -42,7 +46,7 @@ const NoteSnippet = ({ title, note, id }) => {
           <h1
             onClick={(e) => {
               e.stopPropagation();
-              dispatch(DELETE_ITEM(id));
+              dispatch(DELETE_ITEM(data.uid));
               setDeleteConfirmationToggle(false);
             }}
           >
@@ -66,15 +70,15 @@ const NoteSnippet = ({ title, note, id }) => {
     <>
       <div
         className="notesnippet"
-        onClick={() => dispatch(SET_ACTIVE_NOTE(id))}
+        onClick={() => dispatch(SET_ACTIVE_NOTE(data))}
         style={{
           backgroundColor:
-            id === programState.activeNote ? "#689af7" : "#E5E5E5",
+            data.uid === programState.activeNote.uid ? "#689af7" : "#E5E5E5",
         }}
       >
         <div className="noteinfo">
-          <h1>{title}</h1>
-          <h4>{shortenString(note)}</h4>
+          <h1>{data.title}</h1>
+          <h4>{shortenString(data.note)}</h4>
         </div>
         {deleteConfirmationToggle === false ? (
           <DeleteTextToggle />

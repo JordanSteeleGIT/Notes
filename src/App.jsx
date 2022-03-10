@@ -11,7 +11,7 @@ function App() {
     <div className="page-content">
       <Sidebar />
 
-      {programState.activeNote === null ? <CreateNoteForm /> : <ViewNote />}
+      {programState.activeNote === false ? <CreateNoteForm /> : <ViewNote />}
     </div>
   );
 }

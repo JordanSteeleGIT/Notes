@@ -12,7 +12,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="upper-sidebar">
         <h1>Notes</h1>
-        <h4 onClick={() => dispatch(SET_ACTIVE_NOTE(null))}>Add</h4>
+        <h4 onClick={() => dispatch(SET_ACTIVE_NOTE(false))}>Add</h4>
       </div>
       <div className="search">
         <div>
@@ -22,9 +22,7 @@ const Sidebar = () => {
       </div>
       <div className="notes">
         {user.map((data, i) => {
-          return (
-            <NoteSnippet title={data.title} note={data.note} id={data.uid} />
-          );
+          return <NoteSnippet data={data} />;
         })}
       </div>
     </div>

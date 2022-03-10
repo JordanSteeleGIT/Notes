@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const programState = createSlice({
   name: "programState",
-  initialState: { activeNote: null },
+  initialState: { activeNote: false },
 
   reducers: {
     SET_ACTIVE_NOTE: (state, action) => {

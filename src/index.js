@@ -3,20 +3,19 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-
 import { Provider } from "react-redux";
-import notesReducer from "./features/Notes";
-import programState from "./features/AppState";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+import store from "./store";
 
-const store = configureStore({
-  reducer: { notes: notesReducer, programState: programState },
-});
+let persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
