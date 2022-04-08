@@ -21,7 +21,15 @@ export const notesSlice = createSlice({
       ...state,
       value: state.value.filter((item) => item.uid !== action.payload),
     }),
+    UPDATE_ITEM: (state, action) => {
+      return {
+        ...state,
+        value: state.value.map((note) =>
+          note.uid === action.payload.uid ? action.payload : note
+        ),
+      };
+    },
   },
 });
-export const { ADD_ITEM, DELETE_ITEM } = notesSlice.actions;
+export const { ADD_ITEM, DELETE_ITEM, UPDATE_ITEM } = notesSlice.actions;
 export default notesSlice.reducer;

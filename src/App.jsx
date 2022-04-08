@@ -6,12 +6,12 @@ import ViewNote from "./components/ViewNote/ViewNote";
 import { useSelector } from "react-redux";
 
 function App() {
-  const programState = useSelector((state) => state.programState);
+  const activeNote = useSelector((state) => state.activeNote);
+
   return (
     <div className="page-content">
       <Sidebar />
-
-      {programState.activeNote === false ? <CreateNoteForm /> : <ViewNote />}
+      {activeNote.activeNote === false ? <CreateNoteForm /> : <ViewNote />}
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { DELETE_ITEM } from "../../features/Notes";
-import { SET_ACTIVE_NOTE } from "../../features/AppState";
+import { SET_ACTIVE_NOTE, DELETE_ACTIVE_NOTE } from "../../features/ActiveNote";
+import { IS_EDITABLE } from "../../features/FormEditable";
 import { useSelector } from "react-redux";
 
 const NoteSnippet = ({ data }) => {
   const dispatch = useDispatch();
-  const programState = useSelector((state) => state.programState);
+  const activeNote = useSelector((state) => state.activeNote);
   const [deleteConfirmationToggle, setDeleteConfirmationToggle] = useState(
     false
   );
@@ -18,10 +19,6 @@ const NoteSnippet = ({ data }) => {
       return word.substr(0, 90) + " ...";
     }
   }
-
-  useEffect(() => {
-    console.log(programState.activeNote);
-  });
 
   const DeleteTextToggle = () => {
     return (
@@ -48,6 +45,9 @@ const NoteSnippet = ({ data }) => {
               e.stopPropagation();
               dispatch(DELETE_ITEM(data.uid));
               setDeleteConfirmationToggle(false);
+              if (activeNote.activeNote.uid === data.uid) {
+                dispatch(DELETE_ACTIVE_NOTE());
+              }
             }}
           >
             Yes
@@ -70,10 +70,13 @@ const NoteSnippet = ({ data }) => {
     <>
       <div
         className="notesnippet"
-        onClick={() => dispatch(SET_ACTIVE_NOTE(data))}
+        onClick={() => {
+          dispatch(IS_EDITABLE(false));
+          dispatch(SET_ACTIVE_NOTE(data));
+        }}
         style={{
           backgroundColor:
-            data.uid === programState.activeNote.uid ? "#689af7" : "#E5E5E5",
+            data.uid === activeNote.activeNote.uid ? "#689af7" : "#E5E5E5",
         }}
       >
         <div className="noteinfo">

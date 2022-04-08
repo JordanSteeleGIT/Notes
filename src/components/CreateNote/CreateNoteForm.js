@@ -34,9 +34,14 @@ const CreateNoteForm = () => {
           <input
             type="text"
             placeholder="Title"
-            {...register("title", { required: true })}
+            {...register("title", { required: true, maxLength: 15 })}
           />
-          {errors.title && <p>Title is required.</p>}
+          {errors.title && errors.title.type === "required" && (
+            <p>Title is required.</p>
+          )}
+          {errors.title && errors.title.type === "maxLength" && (
+            <p>Title too long.</p>
+          )}
         </div>
         <div>
           <textarea

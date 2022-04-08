@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import NoteSnippet from "./NoteSnippet";
 import "./Sidebar.css";
 import { useDispatch } from "react-redux";
-import { SET_ACTIVE_NOTE } from "../../features/AppState";
+import { SET_ACTIVE_NOTE } from "../../features/ActiveNote";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
